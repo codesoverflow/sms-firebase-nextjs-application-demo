@@ -1,35 +1,38 @@
-import { useState } from 'react';
 import {
   createStyles,
   Container,
-  Avatar,
-  UnstyledButton,
   Group,
-  Text,
   Menu,
   Tabs,
   Burger,
 } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
-import {
-  IconLogout,
-  IconHeart,
-  IconStar,
-  IconMessage,
-  IconSettings,
-  IconPlayerPause,
-  IconTrash,
-  IconSwitchHorizontal,
-  IconChevronDown,
-} from '@tabler/icons';
 import { MantineLogo } from '@mantine/ds';
 import Link from 'next/link'
 import { Anchor } from '@mantine/core';
+import { useEffect } from 'react'
+import { useRouter } from 'next/router'
+
 
 
 export function AppHeader() {
-  const { classes, theme, cx } = useStyles();
-  const [opened, { toggle }] = useDisclosure(false);
+  const { classes, theme } = useStyles();
+  const [opened, { toggle, close }] = useDisclosure(false);
+
+  const router = useRouter()
+  useEffect(() => {
+    const handleRouteChange = () => {
+      close()
+    }
+
+    router.events.on('routeChangeStart', handleRouteChange)
+
+    // If the component is unmounted, unsubscribe
+    // from the event with the `off` method:
+    return () => {
+      router.events.off('routeChangeStart', handleRouteChange)
+    }
+  }, [])
 
 
   return (
