@@ -1,6 +1,8 @@
 import { AppProps } from "next/app";
 import Head from "next/head";
 import { MantineProvider } from "@mantine/core";
+import { FooterSocial } from '../Shared/Footer';
+import { AppHeader } from '../Shared/Header'
 
 export default function App(props: AppProps) {
   const { Component, pageProps } = props;
@@ -24,7 +26,9 @@ export default function App(props: AppProps) {
           colorScheme: "dark",
         }}
       >
+        <AppHeader />
         <Component {...pageProps} />
+        <FooterSocial />
       </MantineProvider>
     </>
   );

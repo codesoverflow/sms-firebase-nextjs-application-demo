@@ -48,8 +48,7 @@ export function AppHeader() {
                 color={theme.white}
               />
             </Menu.Target>
-
-            <Menu.Dropdown>
+            <Menu.Dropdown className={classes.burgerMenu}>
               {menuLinks.map(menuLink => <Menu.Label key={menuLink.name}>{menuLink.component}</Menu.Label>)}
             </Menu.Dropdown>
 
@@ -96,6 +95,9 @@ const useStyles = createStyles((theme) => ({
     },
   },
 
+  burgerMenu: {
+    width: 130,
+  },
 
   tabs: {
     [theme.fn.smallerThan('xs')]: {
@@ -142,5 +144,10 @@ const menuLinks = [
     component: <Link href="/about">
       <Anchor>About Us</Anchor>
     </Link>, name: 'about'
+  },
+  {
+    component: <Link href="/user-input">
+      <Anchor>User Input</Anchor>
+    </Link>, name: 'userInput'
   }
 ]

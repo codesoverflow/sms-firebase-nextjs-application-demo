@@ -8,7 +8,9 @@
     "start": "next start",
     "lint": "next lint",
     "builds": "next build && next export",
-    "deploy": "cross-env NODE_ENV=production firebase deploy --only hosting"
+    "deploy": "cross-env NODE_ENV=production firebase deploy --only hosting",
+    "buildsdeploy": "next build && next export && cross-env NODE_ENV=production firebase deploy --only hosting"
+    
   },
   "dependencies": {
     "@emotion/react": "^11.10.0",

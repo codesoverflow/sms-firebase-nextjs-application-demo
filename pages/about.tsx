@@ -1,13 +1,5 @@
-import { FooterSocial } from '../Shared/Footer';
-import { AppHeader } from '../Shared/Header'
-
 
 export default function IndexPage() {
-  return (<>
+  return "About US"
 
-    <AppHeader />
-    About US
-    <FooterSocial />
-  </>
-  );
 }
